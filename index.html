@@ -1,0 +1,43 @@
+<html ng-app="myApp">
+<head>
+  <title>B-man's Angular Practice</title>
+  <script src="node_modules/angular/angular.min.js"></script>
+  <script src="js/main.js"></script>
+</head>
+<body>
+  <div>
+    <input type="text" ng-model="name" placeholder="Input your name">
+    <h1>Hello {{ name }}</h1>
+    <b ng-init='name = "Bjarke"'>hello {{name}}</b><br>
+    <button ng-click="counter = counter + 1">Add one</button>
+    Current counter {{counter}}<br>
+    <button ng-init="shouldShow = true" ng-click="shouldShow = !shouldShow">flip</button>
+    <div ng-show="shouldShow">showing yeah {{shouldShow}}</div>
+    <div ng-hide="shouldShow">not showing {{shouldShow}}</div>
+  </div>
+  <div ng-controller="PlayerController">
+    <ul id="programs_list" class="">
+      <li ng-repeat="program in programs">
+        <span npr-link play='play(program)' ng-model="program"></span>
+      </li>
+    </ul>
+    <button ng-click="play()" class="button" ng-show="!playing">Play</button>
+    <button ng-click="stop()" class="button" ng-show="playing">Stop</button>
+    Playing audio: <b>{{playing}}</b>
+  </div>
+  <!-- <div ng-controller="MyController">
+    {{clock}}
+    <div>
+      <ul>
+        <li ng-repeat="alias in aliases">{{alias.name}}</li>
+      </ul>
+    </div>
+    <h4>The simplest adding machine</h4>
+    <button ng-click="add(1)" class="button">Add</button>
+    <button ng-click="subtract(1)" class="button">Subtract</button>
+    <h4>Current count: {{counter}}</h4>
+    <div>Random stuff: {{stuff}}</div>
+    <div>error: {{error}}</div>
+  </div> -->
+</body>
+</html>
